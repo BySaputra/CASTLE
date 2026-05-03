@@ -505,8 +505,17 @@ button {
 }
 
 /* Timeline */
-#timeline {
+#timeline-legacy {
   display: none;
+}
+
+.anchor-target {
+  display: block;
+  position: relative;
+  top: -90px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .timeline-section {

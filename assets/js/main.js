@@ -1,6 +1,6 @@
 /* ============================================================
    KPM EXPO UNJ — script.js
-   Handles: Navbar, mobile menu, smooth scroll, hero slider, timeline, AOS
+   Handles: language toggle, navbar, mobile menu, AOS, smooth scroll, hero slider
    ============================================================ */
 
 (function () {
@@ -234,97 +234,4 @@
 
   setupHeroSlider();
 
-  /* ── 7. TIMELINE CARDS SCROLL FOCUS ─────────────────────── */
-  function setupTimelineCards() {
-    const track = $('#timelineCardsTrack');
-    if (!track) return;
-
-    const cards = $$('.timeline-card', track);
-    if (!cards.length) return;
-
-    function setFocusedCard() {
-      const trackRect = track.getBoundingClientRect();
-      const centerX = trackRect.left + trackRect.width / 2;
-
-      let closest = null;
-      let minDistance = Infinity;
-
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(centerX - cardCenter);
-
-        if (distance < minDistance) {
-          minDistance = distance;
-          closest = card;
-        }
-      });
-
-      cards.forEach((card) => card.classList.remove('is-focused'));
-      closest?.classList.add('is-focused');
-    }
-
-    let isPointerDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-
-    track.addEventListener('pointerdown', (e) => {
-      isPointerDown = true;
-      startX = e.clientX;
-      startScrollLeft = track.scrollLeft;
-      track.setPointerCapture?.(e.pointerId);
-    });
-
-    track.addEventListener('pointermove', (e) => {
-      if (!isPointerDown) return;
-      const delta = e.clientX - startX;
-      track.scrollLeft = startScrollLeft - delta;
-    });
-
-    function stopPointerDrag(e) {
-      if (!isPointerDown) return;
-      isPointerDown = false;
-      track.releasePointerCapture?.(e.pointerId);
-      setFocusedCard();
-    }
-
-    track.addEventListener('pointerup', stopPointerDrag);
-    track.addEventListener('pointercancel', stopPointerDrag);
-    track.addEventListener('pointerleave', stopPointerDrag);
-
-    track.addEventListener(
-      'scroll',
-      () => {
-        window.requestAnimationFrame(setFocusedCard);
-      },
-      { passive: true }
-    );
-
-    window.addEventListener('resize', setFocusedCard);
-    setFocusedCard();
-  }
-
-  // setupTimelineCards(); // Timeline is temporarily hidden
-
-  /* ── 8. PARALLAX (SUBTLE HERO BLOBS) ────────────────────── */
-  function setupParallax() {
-    const blobs = $$('.hero-blob');
-    if (!blobs.length) return;
-
-    window.addEventListener(
-      'mousemove',
-      (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 16;
-        const y = (e.clientY / window.innerHeight - 0.5) * 16;
-
-        blobs.forEach((blob, i) => {
-          const factor = (i + 1) * 0.35;
-          blob.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
-        });
-      },
-      { passive: true }
-    );
-  }
-
-  setupParallax();
 })();
