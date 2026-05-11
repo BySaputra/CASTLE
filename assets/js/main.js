@@ -174,7 +174,7 @@
     if (!slider) return;
 
     const slides = $$('.hero-slide', slider);
-    const dots = $$('.hero-slider-dots button', slider);
+    const dots = $$('.hero-gallery-dots button', slider);
     const prevBtn = $('.hero-slider-btn--prev', slider);
     const nextBtn = $('.hero-slider-btn--next', slider);
     if (!slides.length) return;
