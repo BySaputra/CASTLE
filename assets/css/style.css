@@ -111,6 +111,14 @@ a {
   color: inherit;
 }
 
+[data-id][data-en] {
+  transition: opacity var(--transition-fast);
+}
+
+body.is-language-switching [data-id][data-en]:not(meta) {
+  opacity: 0.35;
+}
+
 ul {
   list-style: none;
 }
@@ -1228,60 +1236,6 @@ button {
   white-space: nowrap;
 }
 
-.fee-grid {
-  display: none;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-2xl);
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.fee-card {
-  background: #fff;
-  border: 2px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.fee-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--clr-primary);
-  box-shadow: var(--shadow-lg);
-}
-
-.fee-card.featured {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(37, 99, 235, 0.08));
-  border-color: var(--clr-accent);
-  transform: scale(1.02);
-}
-
-.fee-card h3 {
-  font-size: var(--fs-2xl);
-  font-weight: 700;
-  color: var(--clr-text-primary);
-  margin-bottom: var(--space-lg);
-}
-
-.fee-price {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--clr-accent);
-  margin-bottom: var(--space-lg);
-}
-
-.fee-benefits {
-  list-style: none;
-  margin-bottom: var(--space-2xl);
-}
-
-.fee-benefits li {
-  font-size: var(--fs-sm);
-  color: var(--clr-text-secondary);
-  padding: 0.5rem 0;
-  line-height: 1.6;
-}
-
 .fee-note {
   text-align: center;
   font-size: var(--fs-sm);
@@ -1489,10 +1443,6 @@ button {
     max-width: 720px;
   }
 
-  .fee-grid {
-    grid-template-columns: 1fr;
-  }
-
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1654,10 +1604,6 @@ button {
 
   .timeline-section {
     padding-block: var(--space-4xl);
-  }
-
-  .fee-price {
-    font-size: 2rem;
   }
 
   .timezone-badge {

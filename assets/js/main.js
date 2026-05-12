@@ -17,38 +17,53 @@
   const langToggle = $('#lang-toggle');
   if (langToggle) {
     const translatableElements = $$('[data-id][data-en]');
+    const languageStorageKey = 'castle-language';
     let currentLang = (() => {
       try {
-        const saved = localStorage.getItem('lang');
-        return (saved === 'id' || saved === 'en') ? saved : 'id';
+        const saved = localStorage.getItem(languageStorageKey);
+        return (saved === 'id' || saved === 'en') ? saved : 'en';
       } catch (_) {
-        return 'id';
+        return 'en';
       }
     })();
 
-    function applyLanguage(lang) {
+    function renderLanguage(lang) {
       const safeLang = lang === 'en' ? 'en' : 'id';
       translatableElements.forEach((element) => {
-        const text = element.dataset[safeLang];
-        if (typeof text !== 'string') return;
+        const value = element.dataset[safeLang];
+        if (typeof value !== 'string') return;
         if (element.tagName === 'META') {
-          element.setAttribute('content', text);
+          element.setAttribute('content', value);
         } else {
-          element.textContent = text;
+          element.innerHTML = value;
         }
       });
       document.documentElement.lang = safeLang;
-      langToggle.textContent = safeLang === 'id' ? 'EN' : 'ID';
-      langToggle.setAttribute('aria-label', safeLang === 'id' ? 'Switch language to English' : 'Ganti bahasa ke Indonesia');
+      langToggle.innerHTML = safeLang === 'en' ? 'ID' : 'EN';
+      langToggle.setAttribute('aria-label', safeLang === 'en' ? 'Ganti bahasa ke Indonesia' : 'Switch language to English');
       try {
-        localStorage.setItem('lang', safeLang);
+        localStorage.setItem(languageStorageKey, safeLang);
       } catch (_) {}
+    }
+
+    function applyLanguage(lang, animate = false) {
+      if (!animate) {
+        renderLanguage(lang);
+        return;
+      }
+      document.body.classList.add('is-language-switching');
+      window.setTimeout(() => {
+        renderLanguage(lang);
+        window.requestAnimationFrame(() => {
+          document.body.classList.remove('is-language-switching');
+        });
+      }, 120);
     }
 
     applyLanguage(currentLang);
     langToggle.addEventListener('click', () => {
       currentLang = currentLang === 'id' ? 'en' : 'id';
-      applyLanguage(currentLang);
+      applyLanguage(currentLang, true);
     });
   }
 
