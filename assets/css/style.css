@@ -235,23 +235,23 @@ button {
   z-index: 1000;
   background: transparent;
   border-bottom: 1px solid transparent;
-  padding: 1.15rem 0;
+  padding: 1rem 0;
   transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid var(--clr-border);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 0.8rem 0;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(31, 78, 163, 0.1);
+  box-shadow: 0 10px 26px rgba(15, 47, 95, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.7rem 0;
 }
 
 .nav-container {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: 1.35rem;
 }
 
 .nav-logo {
@@ -270,27 +270,33 @@ button {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 0.2rem;
   margin-left: auto;
 }
 
 .nav-link {
-  padding: 0.45rem 0.9rem;
+  position: relative;
+  padding: 0.5rem 0.82rem;
   border-radius: var(--radius-full);
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  color: var(--clr-text-secondary);
-  transition: all var(--transition-fast);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #536277;
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--clr-text-primary);
-  background: rgba(31, 78, 163, 0.13);
+  color: #102f5e;
+  background: rgba(31, 78, 163, 0.08);
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
 }
 
 .nav-cta {
   flex-shrink: 0;
+  padding-inline: 1.1rem;
 }
 
 .lang-toggle {
@@ -374,13 +380,30 @@ button {
   font-weight: 900;
   line-height: 1.02;
   margin-bottom: 1rem;
-  color: var(--clr-text-primary);
 }
 
 .castle-logo-text {
   font-family: 'Orbitron', sans-serif;
   font-weight: 800;
   letter-spacing: 0.04em;
+
+  background: linear-gradient(
+    180deg,
+    #0d54c0 0%,
+    #1565C0 35%,
+    #1E88E5 70%,
+    #26C6DA 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  display: inline-block;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.35),
+    0 8px 24px rgba(30,136,229,0.12);
 }
 
 .hero-subtitle {
@@ -389,6 +412,8 @@ button {
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
+
+  text-align: justify;
 }
 
 .hero-meta {
@@ -562,6 +587,7 @@ button {
   line-height: 1.86;
   margin-bottom: 1.4rem;
   max-width: 60ch;
+  text-align: justify;
 }
 
 .overview-description p:last-child {
@@ -698,7 +724,6 @@ button {
   border: 1px solid rgba(31, 78, 163, 0.12);
   border-radius: 22px;
   box-shadow: 0 14px 34px rgba(15, 47, 95, 0.055);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .conference-panel:hover {
@@ -900,6 +925,7 @@ button {
   flex-direction: column;
   align-items: flex-start;
   padding: 1.2rem 1.25rem 1.3rem;
+  text-align: justify;
 }
 
 .publication-body h3 {
@@ -908,6 +934,7 @@ button {
   color: var(--clr-text-primary);
   line-height: 1.25;
   margin-bottom: 0.65rem;
+  text-align: justify;
 }
 
 .publication-body p {
@@ -915,6 +942,7 @@ button {
   font-size: var(--fs-sm);
   line-height: 1.68;
   margin-bottom: 1.15rem;
+  text-align: justify;
 }
 
 .publication-link {
@@ -1489,15 +1517,18 @@ button {
     left: 0;
     right: 0;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.97);
-    border-left: 1px solid var(--clr-border);
+    background: rgba(255, 255, 255, 0.98);
+    border-left: 1px solid rgba(31, 78, 163, 0.1);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--space-lg);
+    gap: 0.7rem;
     transform: translateX(100%);
     transition: transform 340ms ease;
     z-index: 999;
+    padding: 6rem 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .nav-links.open {
@@ -1506,6 +1537,14 @@ button {
 
   .hamburger {
     display: flex;
+  }
+
+  .nav-logo-img {
+    height: 58px;
+  }
+
+  .nav-cta {
+    display: none;
   }
 
   .hamburger.active span:nth-child(1) {
@@ -1599,8 +1638,13 @@ button {
   }
 
   .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: min(260px, 72vw);
+    min-height: 48px;
     font-size: var(--fs-md);
-    padding: var(--space-md);
+    padding: 0.8rem 1.2rem;
   }
 }
 
