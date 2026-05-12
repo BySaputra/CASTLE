@@ -1019,8 +1019,99 @@ button {
   background: #fff;
 }
 
+.publication-fee-table-wrap {
+  width: min(100%, 1000px);
+  margin-inline: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(31, 78, 163, 0.12);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 47, 95, 0.06);
+}
+
+.publication-fee-table-wrap::-webkit-scrollbar {
+  height: 8px;
+}
+
+.publication-fee-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(31, 78, 163, 0.18);
+  border-radius: var(--radius-full);
+}
+
+.publication-fee-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  color: #142f55;
+}
+
+.publication-fee-table th,
+.publication-fee-table td {
+  padding: 1.2rem 1.35rem;
+  border-bottom: 1px solid rgba(31, 78, 163, 0.1);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.publication-fee-table thead th {
+  background: #f6f9fd;
+  color: #173b6c;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.publication-fee-table tbody th {
+  color: #102f5e;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.publication-fee-table tbody td {
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.publication-fee-table tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.publication-fee-table tbody tr:hover {
+  background: #f9fbff;
+}
+
+.publication-fee-table tbody tr:last-child th,
+.publication-fee-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.fee-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+  background: rgba(31, 78, 163, 0.09);
+  color: #1f4ea3;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.fee-amount {
+  color: #142f55;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .fee-grid {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-2xl);
   max-width: 900px;
@@ -1076,9 +1167,8 @@ button {
 .fee-note {
   text-align: center;
   font-size: var(--fs-sm);
-  color: var(--clr-text-secondary);
-  font-style: italic;
-  margin-top: var(--space-2xl);
+  color: #64748b;
+  margin-top: 1.35rem;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1390,6 +1480,15 @@ button {
 
   .timeline-date {
     font-size: 1rem;
+  }
+
+  .publication-fee-table {
+    min-width: 680px;
+  }
+
+  .publication-fee-table th,
+  .publication-fee-table td {
+    padding: 1rem;
   }
 
   .footer-grid {
