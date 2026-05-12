@@ -686,43 +686,133 @@ button {
   background: #fff;
 }
 
-.conference-grid {
+.conference-panel {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-2xl);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: #ffffff;
+  border: 1px solid rgba(31, 78, 163, 0.12);
+  border-radius: 22px;
+  box-shadow: 0 14px 34px rgba(15, 47, 95, 0.055);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.info-card {
-  background: var(--clr-bg-secondary);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl);
-  text-align: center;
-  transition: transform var(--transition-base), border-color var(--transition-base);
+.conference-panel:hover {
+  border-color: rgba(31, 78, 163, 0.18);
+  box-shadow: 0 18px 40px rgba(15, 47, 95, 0.07);
 }
 
-.info-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--clr-primary);
+.conference-panel-intro {
+  position: sticky;
+  top: 110px;
 }
 
-.info-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-md);
+.conference-kicker {
+  display: inline-block;
+  color: #1f4ea3;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+}
+
+.conference-panel-intro .section-title {
+  color: #102f5e;
+  margin-bottom: 1rem;
+}
+
+.conference-description {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.85;
+  max-width: 34rem;
+}
+
+.conference-detail-list {
+  border-top: 1px solid rgba(31, 78, 163, 0.12);
+}
+
+.conference-detail-item {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid rgba(31, 78, 163, 0.12);
+}
+
+.conference-detail-label {
   display: block;
+  color: #6b7a90;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
 }
 
-.info-card h4 {
-  font-size: var(--fs-md);
-  font-weight: 700;
-  color: var(--clr-text-primary);
-  margin-bottom: var(--space-sm);
+.conference-detail-value {
+  color: #142f55;
+  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
+  font-weight: 650;
+  line-height: 1.45;
+  margin: 0;
 }
 
-.info-card p {
-  font-size: var(--fs-sm);
-  color: var(--clr-text-secondary);
-  line-height: 1.6;
+.conference-detail-meta {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.timezone-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.45rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(31, 78, 163, 0.09);
+  color: #1f4ea3;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.schedule-preview {
+  margin-top: 1.5rem;
+  padding-top: 1.35rem;
+}
+
+.schedule-preview-label {
+  display: block;
+  color: #6b7a90;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.schedule-preview ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.schedule-preview li {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(31, 78, 163, 0.12);
+  border-radius: var(--radius-full);
+  color: #334155;
+  background: #f8fafc;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.35;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -1356,8 +1446,12 @@ button {
     max-width: 14em;
   }
 
-  .conference-grid {
-    grid-template-columns: 1fr 1fr;
+  .conference-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .conference-panel-intro {
+    position: static;
   }
 
   .publication-grid {
@@ -1457,8 +1551,17 @@ button {
     align-items: stretch;
   }
 
-  .conference-grid {
-    grid-template-columns: 1fr;
+  .conference-panel {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+
+  .conference-detail-item {
+    padding: 1.1rem 0;
+  }
+
+  .schedule-preview ul {
+    gap: 0.5rem;
   }
 
   .publication-grid {
@@ -1519,7 +1622,7 @@ button {
     font-size: 2rem;
   }
 
-  .info-icon {
-    font-size: 2rem;
+  .timezone-badge {
+    margin-left: 0.25rem;
   }
 }
