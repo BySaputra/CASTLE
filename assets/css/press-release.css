@@ -1,0 +1,646 @@
+/* ============================================================
+   CASTLE Conference 6.0 — press-release.css
+   Dedicated Stylesheet for Official Press Release Page
+   ============================================================ */
+
+.press-release-page {
+  padding-top: 110px;
+  padding-bottom: var(--space-4xl);
+  position: relative;
+}
+
+.press-release-page-container {
+  width: 100%;
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* Breadcrumbs */
+.press-release-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.press-release-breadcrumb a {
+  color: var(--clr-primary);
+  transition: color var(--transition-fast);
+}
+
+.press-release-breadcrumb a:hover {
+  color: var(--clr-accent);
+}
+
+.press-release-breadcrumb-separator {
+  color: var(--clr-text-muted);
+}
+
+/* Article Header */
+.press-release-page-header {
+  margin-bottom: var(--space-xl);
+  text-align: left;
+}
+
+.press-release-page-kicker-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
+}
+
+.press-release-page-kicker {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(31, 78, 163, 0.12);
+  border: 1px solid rgba(31, 78, 163, 0.3);
+  color: var(--clr-primary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.press-release-page-meta-tag {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-text-muted);
+}
+
+.press-release-page-title {
+  font-size: clamp(2rem, 3.6vw, 2.85rem);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--clr-text-primary);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.01em;
+}
+
+.press-release-page-dateline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--clr-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Main Hero Image */
+.press-release-hero-media {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-2xl);
+  background: var(--clr-bg-card);
+}
+
+.press-release-hero-img {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  display: block;
+}
+
+.press-release-hero-caption {
+  font-size: var(--fs-xs);
+  color: var(--clr-text-secondary);
+  text-align: center;
+  padding: 0.6rem var(--space-md);
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid var(--clr-border);
+  font-weight: 500;
+}
+
+/* Article Body Content */
+.press-release-article-body {
+  font-size: var(--fs-md);
+  color: var(--clr-text-primary);
+  line-height: 1.85;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-3xl);
+}
+
+.press-release-article-body p {
+  text-align: justify;
+}
+
+.press-release-lead-paragraph {
+  font-size: clamp(1.08rem, 1.2vw, 1.2rem);
+  font-weight: 500;
+  color: var(--clr-text-primary);
+  line-height: 1.75;
+  border-left: 4px solid var(--clr-primary);
+  padding-left: var(--space-md);
+}
+
+/* Subsection Divider & Title */
+.press-release-subsection {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--clr-border);
+}
+
+.press-release-subsection-header {
+  margin-bottom: var(--space-xl);
+}
+
+.press-release-subsection-tag {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--clr-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.press-release-subsection-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  color: var(--clr-text-primary);
+  line-height: 1.3;
+}
+
+/* Keynote Speakers Section */
+.press-release-speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.press-release-speaker-card {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.press-release-speaker-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.press-release-speaker-media {
+  width: 90px;
+  height: 90px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 0 auto var(--space-md);
+  border: 3px solid rgba(31, 78, 163, 0.15);
+  box-shadow: var(--shadow-sm);
+}
+
+.press-release-speaker-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.press-release-speaker-name {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.press-release-speaker-inst {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-primary);
+  margin-bottom: 0.35rem;
+}
+
+.press-release-speaker-country {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(31, 78, 163, 0.08);
+  color: var(--clr-text-secondary);
+}
+
+/* Publication Pathways Grid */
+.press-release-pub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.press-release-pub-card {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.press-release-pub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.press-release-pub-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(180deg, rgba(31, 78, 163, 0.04), rgba(0, 0, 0, 0.01));
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.press-release-pub-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+.press-release-pub-card h3,
+.press-release-pub-card h4 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  margin-top: 0.25rem;
+}
+
+/* Award Recognition */
+.press-release-awards-box {
+  background: linear-gradient(135deg, rgba(31, 78, 163, 0.06), rgba(242, 140, 40, 0.06));
+  border: 1px solid rgba(31, 78, 163, 0.15);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.press-release-awards-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.press-release-awards-number {
+  font-family: 'Orbitron', var(--font-base);
+  font-size: clamp(3rem, 6vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--clr-primary);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.press-release-awards-label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+.press-release-awards-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.press-release-award-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  border: 1px solid rgba(31, 78, 163, 0.18);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--clr-text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Photo Documentation Gallery */
+.press-release-gallery-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.press-release-gallery-main {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 16 / 9;
+}
+
+.press-release-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.press-release-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.press-release-gallery-thumb {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-sm);
+}
+
+.press-release-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.press-release-gallery-thumb:hover img {
+  transform: scale(1.04);
+}
+
+/* Closing Banner */
+.press-release-closing-card {
+  background: rgba(31, 78, 163, 0.04);
+  border: 1px solid rgba(31, 78, 163, 0.12);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  text-align: center;
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.press-release-closing-title {
+  font-family: 'Orbitron', var(--font-base);
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+}
+
+.press-release-closing-desc {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Back Navigation Button */
+.press-release-back-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 850px) {
+  .press-release-speakers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .press-release-pub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Participant Overview Subsection */
+.press-release-participant-desc {
+  font-size: var(--fs-md);
+  color: var(--clr-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.press-release-participant-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.press-release-participant-highlight {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.press-release-participant-number {
+  font-family: 'Orbitron', var(--font-base);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--clr-primary);
+  line-height: 1;
+  display: block;
+}
+
+.press-release-participant-label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  display: block;
+}
+
+.press-release-participant-card {
+  background: var(--clr-bg-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-fluid-lg);
+}
+
+.press-release-participant-content {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-fluid-xl);
+  align-items: center;
+}
+
+.press-release-participant-chart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.press-release-participant-donut {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.press-release-participant-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.press-release-participant-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.press-release-participant-center-num {
+  font-family: 'Orbitron', var(--font-base);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--clr-primary);
+  line-height: 1;
+}
+
+.press-release-participant-center-lbl {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--clr-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.press-release-participant-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.press-release-participant-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.press-release-participant-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  grid-row: 1 / 3;
+}
+
+.press-release-participant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.press-release-participant-country-line {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.press-release-participant-country-name {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--clr-text-primary);
+}
+
+.press-release-participant-continent {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full);
+  background: rgba(31, 78, 163, 0.08);
+  color: var(--clr-primary);
+}
+
+.press-release-participant-stats-line {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-text-secondary);
+}
+
+.press-release-participant-bar-wrap {
+  grid-column: 2 / 3;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.press-release-participant-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.press-release-participant-outro {
+  font-size: var(--fs-xs);
+  font-style: italic;
+  color: var(--clr-text-secondary);
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--clr-border);
+  text-align: center;
+}
+
+/* Media Queries for Participant Overview */
+@media (max-width: 768px) {
+  .press-release-participant-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  .press-release-participant-highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
