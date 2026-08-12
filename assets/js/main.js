@@ -207,4 +207,61 @@
     }
   }
 
+  // ────────────────────────────────────────────────────────
+  // PARTICIPANT STATISTICS CHART & LEGEND INTERACTIVITY
+  // ────────────────────────────────────────────────────────
+  const donutContainer = $('.participant-donut-container');
+  if (donutContainer) {
+    const segments = $$('.participant-chart-segment', donutContainer);
+    const legendItems = $$('.participant-legend-item');
+    const tooltip = $('#participant-tooltip', donutContainer);
+    const tooltipCountry = $('#participant-tooltip-country', donutContainer);
+    const tooltipDetail = $('#participant-tooltip-detail', donutContainer);
+
+    const showTooltip = (segment) => {
+      if (!tooltip || !segment) return;
+      const currentLang = document.documentElement.lang || 'en';
+      const country = segment.dataset.country || '';
+      const count = segment.dataset.count || '0';
+      const percentage = (currentLang === 'id' ? segment.dataset.percentage : segment.dataset.percentageEn) || segment.dataset.percentage;
+      const teamUnit = currentLang === 'id' ? 'Tim' : 'Teams';
+
+      if (tooltipCountry) tooltipCountry.textContent = country;
+      if (tooltipDetail) tooltipDetail.textContent = `${count} ${teamUnit} (${percentage})`;
+
+      tooltip.classList.add('is-visible');
+
+      legendItems.forEach(item => {
+        item.classList.toggle('is-active', item.dataset.country === country);
+      });
+      segments.forEach(seg => {
+        seg.classList.toggle('is-active', seg === segment);
+      });
+    };
+
+    const hideTooltip = () => {
+      if (tooltip) tooltip.classList.remove('is-visible');
+      legendItems.forEach(item => item.classList.remove('is-active'));
+      segments.forEach(seg => seg.classList.remove('is-active'));
+    };
+
+    segments.forEach(segment => {
+      segment.addEventListener('mouseenter', () => showTooltip(segment));
+      segment.addEventListener('mouseleave', hideTooltip);
+      segment.addEventListener('focus', () => showTooltip(segment));
+      segment.addEventListener('blur', hideTooltip);
+    });
+
+    legendItems.forEach(item => {
+      const country = item.dataset.country;
+      const matchingSegment = segments.find(seg => seg.dataset.country === country);
+
+      item.addEventListener('mouseenter', () => {
+        if (matchingSegment) showTooltip(matchingSegment);
+      });
+      item.addEventListener('mouseleave', hideTooltip);
+    });
+  }
+
 })();
+

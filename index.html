@@ -143,6 +143,141 @@
 
 
   <!-- ==============================
+       PARTICIPANT STATISTICS SECTION
+  ============================== -->
+  <section class="participant-stats-section" id="participant-stats">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-tag" data-id="Statistik Peserta" data-en="Participant Statistics">Participant Statistics</span>
+        <h2 class="section-title" data-id="STATISTIK PESERTA" data-en="PARTICIPANT STATISTICS">PARTICIPANT STATISTICS</h2>
+        <p class="section-desc" data-id="Distribusi jumlah tim berdasarkan negara asal peserta" data-en="Distribution of teams by participant country of origin">Distribution of teams by participant country of origin</p>
+      </div>
+
+      <div class="participant-stats-card" data-aos="fade-up">
+        <div class="participant-stats-content">
+          <!-- Donut Chart Column -->
+          <div class="participant-chart-wrapper">
+            <div class="participant-donut-container">
+              <svg class="participant-donut-chart" viewBox="0 0 200 200" aria-label="Donut chart statistik peserta">
+                <!-- Background track circle -->
+                <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(0, 0, 0, 0.05)" stroke-width="24" />
+                
+                <!-- Chart Segments (Rotated -90deg so start is top center) -->
+                <g transform="rotate(-90 100 100)">
+                  <!-- Indonesia: 100 teams / 82.64% -->
+                  <circle class="participant-chart-segment" data-country="Indonesia" data-count="100" data-percentage="82,64%" data-percentage-en="82.64%" data-continent="Asia" data-color="#1F4EA3" cx="100" cy="100" r="70" fill="none" stroke="#1F4EA3" stroke-width="24" stroke-dasharray="361.5 439.823" stroke-dashoffset="0" />
+                  
+                  <!-- Nigeria: 18 teams / 14.88% -->
+                  <circle class="participant-chart-segment" data-country="Nigeria" data-count="18" data-percentage="14,88%" data-percentage-en="14.88%" data-continent="Afrika" data-continent-en="Africa" data-color="#F28C28" cx="100" cy="100" r="70" fill="none" stroke="#F28C28" stroke-width="24" stroke-dasharray="63.5 439.823" stroke-dashoffset="-363.49" />
+                  
+                  <!-- China: 2 teams / 1.65% -->
+                  <circle class="participant-chart-segment" data-country="China" data-count="2" data-percentage="1,65%" data-percentage-en="1.65%" data-continent="Asia" data-color="#6C7BD9" cx="100" cy="100" r="70" fill="none" stroke="#6C7BD9" stroke-width="24" stroke-dasharray="5.5 439.823" stroke-dashoffset="-428.92" />
+                  
+                  <!-- Taiwan: 1 team / 0.83% -->
+                  <circle class="participant-chart-segment" data-country="Taiwan" data-count="1" data-percentage="0,83%" data-percentage-en="0.83%" data-continent="Asia" data-color="#F2C66D" cx="100" cy="100" r="70" fill="none" stroke="#F2C66D" stroke-width="24" stroke-dasharray="2.5 439.823" stroke-dashoffset="-436.19" />
+                </g>
+              </svg>
+
+              <!-- Donut Center Label -->
+              <div class="participant-donut-center">
+                <span class="participant-donut-number">121</span>
+                <span class="participant-donut-label" data-id="Total Tim" data-en="Total Teams">Total Teams</span>
+              </div>
+
+              <!-- Tooltip Element -->
+              <div class="participant-tooltip" id="participant-tooltip" role="tooltip" aria-hidden="true">
+                <div class="participant-tooltip-country" id="participant-tooltip-country">Indonesia</div>
+                <div class="participant-tooltip-detail" id="participant-tooltip-detail">100 Tim (82,64%)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend Column -->
+          <div class="participant-legend-wrapper">
+            <div class="participant-legend-header" data-id="Rincian Berdasarkan Negara" data-en="Breakdown by Country">Breakdown by Country</div>
+            <ul class="participant-legend-list">
+              <li class="participant-legend-item" data-country="Indonesia">
+                <div class="participant-legend-color" style="background-color: #1F4EA3;"></div>
+                <div class="participant-legend-info">
+                  <div class="participant-legend-title">
+                    <span class="participant-country-name">Indonesia</span>
+                    <span class="participant-continent-badge" data-id="Asia" data-en="Asia">Asia</span>
+                  </div>
+                  <div class="participant-legend-stats" data-id="Indonesia — 100 Tim — 82,64%" data-en="Indonesia — 100 Teams — 82.64%">Indonesia — 100 Teams — 82.64%</div>
+                </div>
+                <div class="participant-legend-bar-wrap">
+                  <div class="participant-legend-bar" style="width: 82.64%; background-color: #1F4EA3;"></div>
+                </div>
+              </li>
+
+              <li class="participant-legend-item" data-country="Nigeria">
+                <div class="participant-legend-color" style="background-color: #F28C28;"></div>
+                <div class="participant-legend-info">
+                  <div class="participant-legend-title">
+                    <span class="participant-country-name">Nigeria</span>
+                    <span class="participant-continent-badge" data-id="Afrika" data-en="Africa">Africa</span>
+                  </div>
+                  <div class="participant-legend-stats" data-id="Nigeria — 18 Tim — 14,88%" data-en="Nigeria — 18 Teams — 14.88%">Nigeria — 18 Teams — 14.88%</div>
+                </div>
+                <div class="participant-legend-bar-wrap">
+                  <div class="participant-legend-bar" style="width: 14.88%; background-color: #F28C28;"></div>
+                </div>
+              </li>
+
+              <li class="participant-legend-item" data-country="China">
+                <div class="participant-legend-color" style="background-color: #6C7BD9;"></div>
+                <div class="participant-legend-info">
+                  <div class="participant-legend-title">
+                    <span class="participant-country-name">China</span>
+                    <span class="participant-continent-badge" data-id="Asia" data-en="Asia">Asia</span>
+                  </div>
+                  <div class="participant-legend-stats" data-id="China — 2 Tim — 1,65%" data-en="China — 2 Teams — 1.65%">China — 2 Teams — 1.65%</div>
+                </div>
+                <div class="participant-legend-bar-wrap">
+                  <div class="participant-legend-bar" style="width: 5%; background-color: #6C7BD9;"></div>
+                </div>
+              </li>
+
+              <li class="participant-legend-item" data-country="Taiwan">
+                <div class="participant-legend-color" style="background-color: #F2C66D;"></div>
+                <div class="participant-legend-info">
+                  <div class="participant-legend-title">
+                    <span class="participant-country-name">Taiwan</span>
+                    <span class="participant-continent-badge" data-id="Asia" data-en="Asia">Asia</span>
+                  </div>
+                  <div class="participant-legend-stats" data-id="Taiwan — 1 Tim — 0,83%" data-en="Taiwan — 1 Team — 0.83%">Taiwan — 1 Team — 0.83%</div>
+                </div>
+                <div class="participant-legend-bar-wrap">
+                  <div class="participant-legend-bar" style="width: 3%; background-color: #F2C66D;"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Summary Stats Footer Bar -->
+        <div class="participant-summary-bar">
+          <div class="participant-summary-item">
+            <span class="participant-summary-num">47</span>
+            <span class="participant-summary-lbl" data-id="Institusi" data-en="Institutions">Institutions</span>
+          </div>
+          <div class="participant-summary-divider" aria-hidden="true">|</div>
+          <div class="participant-summary-item">
+            <span class="participant-summary-num">121</span>
+            <span class="participant-summary-lbl" data-id="Tim" data-en="Teams">Teams</span>
+          </div>
+          <div class="participant-summary-divider" aria-hidden="true">|</div>
+          <div class="participant-summary-item">
+            <span class="participant-summary-num">4</span>
+            <span class="participant-summary-lbl" data-id="Negara" data-en="Countries">Countries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==============================
        CONFERENCE DETAILS SECTION
   ============================== -->
   <section class="conference-info" id="conference">
