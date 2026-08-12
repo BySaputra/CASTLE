@@ -263,5 +263,45 @@
     });
   }
 
+  // ────────────────────────────────────────────────────────
+  // LIGHTBOX MODAL FOR PRESS RELEASE DOCUMENTATION
+  // ────────────────────────────────────────────────────────
+  const lightbox = $('#press-release-lightbox');
+  if (lightbox) {
+    const lightboxImg = $('#press-release-lightbox-img', lightbox);
+    const closeBtn = $('.press-release-lightbox-close', lightbox);
+    const overlay = $('.press-release-lightbox-overlay', lightbox);
+
+    const openLightbox = (src) => {
+      if (!lightboxImg) return;
+      lightboxImg.src = src;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-lightbox]').forEach((item) => {
+      item.addEventListener('click', () => {
+        const src = item.getAttribute('data-lightbox');
+        if (src) openLightbox(src);
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    overlay?.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
+
 })();
+
 

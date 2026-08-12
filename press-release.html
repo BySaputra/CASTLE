@@ -71,9 +71,9 @@
       </header>
 
       <!-- Main Hero Photo -->
-      <div class="press-release-hero-media" data-aos="fade-up">
-        <img src="assets/images/Zoom Conference CASTLE 2025.jpeg" alt="CASTLE 6th Conference 2026 Main Session" class="press-release-hero-img" />
-        <div class="press-release-hero-caption" data-id="Sesi Konferensi Daring CASTLE 6th Conference 2026 via Zoom Workplace" data-en="CASTLE 6th Conference 2026 Virtual Session via Zoom Workplace">CASTLE 6th Conference 2026 Virtual Session via Zoom Workplace</div>
+      <div class="press-release-hero-media" data-aos="fade-up" data-lightbox="assets/images/press-release/utama.jpeg">
+        <img src="assets/images/press-release/utama.jpeg" alt="CASTLE 6th Conference 2026 Main Session" class="press-release-hero-img" />
+        <div class="press-release-hero-caption" data-id="CASTLE 6th Conference 2026" data-en="CASTLE 6th Conference 2026">CASTLE 6th Conference 2026</div>
       </div>
 
       <!-- Article Body Content -->
@@ -308,21 +308,18 @@
           <h2 class="press-release-subsection-title" data-id="DOKUMENTASI FOTO" data-en="PHOTO DOCUMENTATION">PHOTO DOCUMENTATION</h2>
         </div>
 
-        <div class="press-release-gallery-wrap">
-          <div class="press-release-gallery-main">
-            <img src="assets/images/Keynote Speaker Conference.jpeg" alt="CASTLE 2026 Keynote Speaker Session" />
+        <div class="press-release-gallery-grid-2x2">
+          <div class="press-release-gallery-item" data-lightbox="assets/images/press-release/side1.jpeg">
+            <img src="assets/images/press-release/side1.jpeg" alt="Conference Documentation 1" class="press-release-gallery-img" />
           </div>
-
-          <div class="press-release-gallery-grid">
-            <div class="press-release-gallery-thumb">
-              <img src="assets/images/Zoom Conference.jpeg" alt="Zoom Conference Session 1" />
-            </div>
-            <div class="press-release-gallery-thumb">
-              <img src="assets/images/Zoom Conference CASTLE 2025.jpeg" alt="Zoom Conference Session 2" />
-            </div>
-            <div class="press-release-gallery-thumb">
-              <img src="assets/images/flyer.jpeg" alt="CASTLE 2026 Conference Flyer" />
-            </div>
+          <div class="press-release-gallery-item" data-lightbox="assets/images/press-release/side2.jpeg">
+            <img src="assets/images/press-release/side2.jpeg" alt="Conference Documentation 2" class="press-release-gallery-img" />
+          </div>
+          <div class="press-release-gallery-item" data-lightbox="assets/images/press-release/side3.jpeg">
+            <img src="assets/images/press-release/side3.jpeg" alt="Conference Documentation 3" class="press-release-gallery-img" />
+          </div>
+          <div class="press-release-gallery-item" data-lightbox="assets/images/press-release/side4.jpeg">
+            <img src="assets/images/press-release/side4.jpeg" alt="Conference Documentation 4" class="press-release-gallery-img" />
           </div>
         </div>
       </section>
@@ -340,6 +337,15 @@
 
     </div>
   </main>
+
+  <!-- Lightbox Modal Overlay -->
+  <div class="press-release-lightbox" id="press-release-lightbox" aria-hidden="true" role="dialog">
+    <div class="press-release-lightbox-overlay"></div>
+    <div class="press-release-lightbox-content">
+      <button type="button" class="press-release-lightbox-close" aria-label="Close image">&times;</button>
+      <img src="" alt="Enlarged documentation photo" id="press-release-lightbox-img" />
+    </div>
+  </div>
 
   <!-- ==============================
        FOOTER
